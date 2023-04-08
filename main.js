@@ -1,30 +1,22 @@
-// Wait for the DOM to be fully loaded before running the script
-document.addEventListener("DOMContentLoaded", function () {
-
-    // Define the love date
-    const loveDate = new Date("2023-01-01");
-  
-    // Get the timer element from the page
-    const timer = document.getElementById("timer");
-  
-    // Update the timer every second
-    setInterval(function () {
-      // Calculate the time difference between now and the love date
-      const now = new Date();
-      const diff = Math.floor((now - loveDate) / 1000);
-  
-      // Update the timer element with the time difference
-      timer.setAttribute("data-count", diff);
+function updateTime() {
+    var startDate = new Date();
+    var storedStartDate = localStorage.getItem('startDate');
+    if (storedStartDate) {
+        startDate = new Date(storedStartDate);
+    } else {
+        startDate.setDate(startDate.getDate() - 160);
+        localStorage.setItem('startDate', startDate);
+    }
+    var clock = document.getElementById('clock');
+    setInterval(function() {
+        var currentDate = new Date();
+        var diff = currentDate.getTime() - startDate.getTime();
+        var totalSeconds = Math.floor(diff / 1000);
+        var days = Math.floor(totalSeconds / (60 * 60 * 24));
+        var hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+        var minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+        var seconds = totalSeconds % 60;
+        clock.innerHTML = days + ' days, ' + hours + ' hours, ' + minutes + ' minutes, ' + seconds + ' seconds';
     }, 1000);
-  
-    // Add flying hearts in the background as you scroll
-    window.addEventListener("scroll", function () {
-      const hearts = document.querySelectorAll(".heart");
-      hearts.forEach(function (heart) {
-        const speed = heart.getAttribute("data-speed");
-        const yPos = -(window.pageYOffset * speed / 100);
-        heart.style.transform = "translateY(" + yPos + "px)";
-      });
-    });
-  });
-  
+}
+window.onload = updateTime;
