@@ -1,30 +1,30 @@
-const loveTimer = document.getElementById("love-timer");
-const days = document.getElementById("days");
-const hours = document.getElementById("hours");
-const minutes = document.getElementById("minutes");
-const seconds = document.getElementById("seconds");
+// Wait for the DOM to be fully loaded before running the script
+document.addEventListener("DOMContentLoaded", function () {
 
-function updateTimer() {
-  const now = new Date();
-  const start = new Date();
-  start.setMonth(start.getMonth() - 6);
-  const elapsed = now - start;
-  const secondsElapsed = Math.floor(elapsed / 1000);
-
-  const daysElapsed = Math.floor(secondsElapsed / (3600 * 24));
-  const hoursElapsed = Math.floor((secondsElapsed % (3600 * 24)) / 3600);
-  const minutesElapsed = Math.floor((secondsElapsed % 3600) / 60);
-  const secondsRemainder = secondsElapsed % 60;
-
-  days.textContent = formatNumber(daysElapsed);
-  hours.textContent = formatNumber(hoursElapsed);
-  minutes.textContent = formatNumber(minutesElapsed);
-  seconds.textContent = formatNumber(secondsRemainder);
-}
-
-function formatNumber(number) {
-  return number.toString().padStart(2, "0");
-}
-
-updateTimer();
-setInterval(updateTimer, 1000);
+    // Define the love date
+    const loveDate = new Date("2023-01-01");
+  
+    // Get the timer element from the page
+    const timer = document.getElementById("timer");
+  
+    // Update the timer every second
+    setInterval(function () {
+      // Calculate the time difference between now and the love date
+      const now = new Date();
+      const diff = Math.floor((now - loveDate) / 1000);
+  
+      // Update the timer element with the time difference
+      timer.setAttribute("data-count", diff);
+    }, 1000);
+  
+    // Add flying hearts in the background as you scroll
+    window.addEventListener("scroll", function () {
+      const hearts = document.querySelectorAll(".heart");
+      hearts.forEach(function (heart) {
+        const speed = heart.getAttribute("data-speed");
+        const yPos = -(window.pageYOffset * speed / 100);
+        heart.style.transform = "translateY(" + yPos + "px)";
+      });
+    });
+  });
+  
