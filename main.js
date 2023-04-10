@@ -2,7 +2,7 @@ function updateTime() {
   const startDate = new Date(); 
   const clock = document.getElementById("clock"); 
   setInterval(() => { 
-    fetch('https://timeapi.io/api/Time/current/zone?timeZone=Etc/UTC') 
+    fetch('https://timeapi.io/api/Time/current/zone?timeZone=Etc/UTC', {mode: 'no-cors'}) 
       .then(response => response.json()) 
       .then(({ dateString }) => { 
         const currentDate = new Date(dateString); 
@@ -18,7 +18,7 @@ function updateTime() {
         console.error('Error:', error); 
       }); 
   }, 1000); 
-}
+} 
 
 window.onload = () => { 
   updateTime(); 
