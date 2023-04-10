@@ -22,4 +22,6 @@ function updateTime() {
   }, 1000);
 }
 
-window.onload = updateTime;
+window.onload = function() {
+  updateTime(); // Call the function on page load
+};
