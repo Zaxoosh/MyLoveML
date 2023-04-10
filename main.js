@@ -1,6 +1,6 @@
 function updateTime() { 
   const startDate = new Date(); 
-  const clock = document.getElementById('clock'); 
+  const clock = document.getElementById("clock"); 
   setInterval(() => { 
     fetch('https://timeapi.io/api/Time/current/zone?timeZone=Etc/UTC') 
       .then(response => response.json()) 
