@@ -9,7 +9,7 @@ function updateTime() {
     }
     var clock = document.getElementById('clock');
     setInterval(function() {
-      fetch('http://worldtimeapi.org/api/timezone/Etc/UTC')
+        fetch('https://worldtimeapi.org/api/timezone/Etc/UTC')
         .then(function(response) {
           return response.json();
         })
@@ -28,5 +28,6 @@ function updateTime() {
         });
     }, 1000);
   }
+  
   window.onload = updateTime;
   
