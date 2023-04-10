@@ -4,12 +4,12 @@ function updateTime() {
     if (storedStartDate) {
       startDate = new Date(storedStartDate);
     } else {
-      startDate.setDate(startDate.getDate() - 160);
+      startDate.setDate(startDate.getDate() - 163);
       localStorage.setItem('startDate', startDate);
     }
     var clock = document.getElementById('clock');
     setInterval(function() {
-        fetch('https://worldtimeapi.org/api/timezone/Etc/UTC')
+      fetch('https://worldtimeapi.org/api/timezone/Etc/UTC')
         .then(function(response) {
           return response.json();
         })
@@ -29,5 +29,4 @@ function updateTime() {
     }, 1000);
   }
   
-  window.onload = updateTime;
-  
+  window.onload = updateTime;  
