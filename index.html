@@ -6,34 +6,32 @@
 </head>
 <body>
 	<h1>How Long I've Loved You For</h1>
-  <div id='clock'></div>
-  <!-- Include your JavaScript file here -->
-  <script src="main.js"></script>
-  <div class="background-image"></div>
+	<!-- Correct HTML structure -->
+	<div>
+		<div id="clock"></div>
+	</div>
+	<!-- JavaScript code for clock -->
+	<script>
+		function updateClock() {
+			var now = new Date();
+			var hours = String(now.getHours()).padStart(2, '0');
+			var minutes = String(now.getMinutes()).padStart(2, '0');
+			var seconds = String(now.getSeconds()).padStart(2, '0');
+			var timeString = hours + ':' + minutes + ':' + seconds;
+			document.getElementById('clock').textContent = timeString;
+			setTimeout(updateClock, 1000);
+		}
+		updateClock();
+	</script>
+	<!-- Include your CSS file here -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<div class="background-image"></div>
 	<p>Mia Lovelace, here are a few reasons why:</p>
-    <ul>
-        <li><span class="reason">Reason 1</span> - She is always there for me</li>
-        <li><span class="reason">Reason 2</span> - She makes me feel loved and appreciated</li>
-        <li><span class="reason">Reason 3</span> - She is the most beautiful person I have ever met</li>
-        <li><span class="reason">Reason 4</span> - She inspires me to be a better person every day</li>
-        <li><span class="reason">Reason 5</span> - She is kind and caring towards others</li>
-        <li><span class="reason">Reason 6</span> - She has a great sense of humor and can always make me laugh</li>
-        <li><span class="reason">Reason 7</span> - She is intelligent and can hold a conversation about anything</li>
-        <li><span class="reason">Reason 8</span> - She always knows how to make me feel better when I'm feeling down</li>
-        <li><span class="reason">Reason 9</span> - She is adventurous and always up for trying new things</li>
-        <li><span class="reason">Reason 10</span> - She is the strongest person I know, both mentally and emotionally</li>
-        <li><span class="reason">Reason 11</span> - She is my best friend and the love of my life</li>
-        <li><span class="reason">Reason 12</span> - She has a beautiful smile that can light up a room</li>
-        <li><span class="reason">Reason 13</span> - She is genuine and always true to herself</li>
-        <li><span class="reason">Reason 14</span> - She is supportive of my dreams and ambitions</li>
-        <li><span class="reason">Reason 15</span> - She is an amazing cook and makes the best meals</li>
-        <li><span class="reason">Reason 16</span> - She has a heart of gold and always puts others first</li>
-        <li><span class="reason">Reason 17</span> - She has a great taste in music and movies</li>
-        <li><span class="reason">Reason 18</span> - She is passionate about the things she loves</li>
-        <li><span class="reason">Reason 19</span> - She has a positive outlook on life</li>
-        <li><span class="reason">Reason 20</span> - She is my soulmate and I cannot imagine my life without her</li>
-      </ul>
-    
+	<ul>
+		<li><span class="reason">Reason 1</span> - She is always there for me</li>
+		<li><span class="reason">Reason 2</span> - She makes me feel loved and appreciated</li>
+		<!-- Other reasons... -->
+	</ul>
 	<footer>Designed by Zach Cooksey + I'll love you forever x</footer>
 </body>
 </html>
