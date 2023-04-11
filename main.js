@@ -19,8 +19,8 @@
     return `${timeData.days} days, ${timeData.hours} hours, ${timeData.minutes} minutes, ${timeData.seconds} seconds`;
   }
 
-  // Define the date when you met
-  const startDate = new Date('2022-10-30T00:00:00Z');
+  // Define the date when you met in UTC format
+  const startDate = Date.UTC(2022, 9, 30, 0, 0, 0); // Month is zero-based (0 for January)
 
   // Function to update the time
   function updateTime() {
