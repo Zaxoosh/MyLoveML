@@ -14,8 +14,8 @@
     <script>
         // JavaScript code for clock
         function updateClock() {
-            var now = luxon.DateTime.local();
-            var timeString = now.toFormat('HH:mm:ss');
+            var now = new Date();
+            var timeString = now.toLocaleTimeString();
             document.getElementById('clock').textContent = timeString;
             setTimeout(updateClock, 1000);
         }
@@ -23,22 +23,21 @@
 
         // Update days, hours, minutes, and seconds in the clock
         function updateCountdown() {
-            var countdownDate = luxon.DateTime.fromISO('2023-04-08T00:00:00Z');
-            var now = luxon.DateTime.local();
-            var distance = countdownDate.diff(now, 'milliseconds');
+            var countdownDate = new Date('2023-04-08T00:00:00Z');
+            var now = new Date();
+            var distance = countdownDate - now;
 
             // Calculate days, hours, minutes, and seconds
-            var duration = luxon.Duration.fromMillis(distance);
-            var days = duration.as('days');
-            var hours = duration.as('hours') % 24;
-            var minutes = duration.as('minutes') % 60;
-            var seconds = duration.as('seconds') % 60;
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Update the countdown elements in the HTML
-            document.getElementById('days').textContent = 'Days: ' + Math.floor(days);
-            document.getElementById('hours').textContent = 'Hours: ' + Math.floor(hours);
-            document.getElementById('minutes').textContent = 'Minutes: ' + Math.floor(minutes);
-            document.getElementById('seconds').textContent = 'Seconds: ' + Math.floor(seconds);
+            document.getElementById('days').textContent = 'Days: ' + days;
+            document.getElementById('hours').textContent = 'Hours: ' + hours;
+            document.getElementById('minutes').textContent = 'Minutes: ' + minutes;
+            document.getElementById('seconds').textContent = 'Seconds: ' + seconds;
             setTimeout(updateCountdown, 1000);
         }
         updateCountdown();
