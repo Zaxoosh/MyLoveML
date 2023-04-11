@@ -2,21 +2,20 @@
 <div id='clock'></div>
 
 <script>
-  // Function to calculate time difference
-  function calculateTimeDifference(startDate) {
-    let currentDate = new Date();
-    let timeDifference = currentDate.getTime() - startDate.getTime();
-    let totalSeconds = Math.floor(timeDifference / 1000);
-    let days = Math.floor(totalSeconds / (60 * 60 * 24));
-    let hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
-    let minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
-    let seconds = totalSeconds % 60;
-    return { days, hours, minutes, seconds };
-  }
-
   // Function to format time data as a string
   function formatTimeData(timeData) {
-    return `${timeData.days} days, ${timeData.hours} hours, ${timeData.minutes} minutes, ${timeData.seconds} seconds`;
+    let formattedTime = '';
+    if (timeData.days > 0) {
+      formattedTime += timeData.days + ' days, ';
+    }
+    if (timeData.hours > 0) {
+      formattedTime += timeData.hours + ' hours, ';
+    }
+    if (timeData.minutes > 0) {
+      formattedTime += timeData.minutes + ' minutes, ';
+    }
+    formattedTime += timeData.seconds + ' seconds';
+    return formattedTime;
   }
 
   // Define the date when you met in UTC format
@@ -25,7 +24,14 @@
   // Function to update the time
   function updateTime() {
     let clock = document.getElementById("clock");
-    let timeData = calculateTimeDifference(startDate);
+    let currentDate = new Date();
+    let timeDifference = Math.floor((currentDate.getTime() - startDate) / 1000);
+    let timeData = {
+      days: Math.floor(timeDifference / (60 * 60 * 24)),
+      hours: Math.floor((timeDifference % (60 * 60 * 24)) / (60 * 60)),
+      minutes: Math.floor((timeDifference % (60 * 60)) / 60),
+      seconds: timeDifference % 60
+    };
     let timeString = formatTimeData(timeData);
     clock.innerHTML = timeString;
   }
