@@ -42,8 +42,25 @@ li {
     display: none;
 }
 
+/* Button styles */
+/* Button styles with rounded corners */
 .show-more-button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    border-radius: 25px; /* Add border-radius property to round the corners */
     cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.show-more-button:hover {
+    background-color: #ff5ca1; /* Lighter shade of romantic pink on hover */
 }
 
 /* Set styles for clock element spans */
