@@ -29,6 +29,18 @@ li {
 	margin-bottom: 10px;
 }
 
+/* Set styles for clock element */
+#clock {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Set styles for clock element spans */
+#clock span {
+    margin-right: 5px;
+}
+
 /* Adjust font size for smaller screens */
 @media screen and (max-width: 768px) {
     body {
