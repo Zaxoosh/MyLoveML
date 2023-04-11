@@ -1,32 +1,33 @@
 body {
-	background-color: #ffcccc;
-	font-family: Arial, sans-serif;
-	text-align: center;
-	padding: 20px;
-	box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffe6f2; /* Romantic pink background color */
 }
 
 h1 {
-	color: #ff69b4;
-	border-bottom: 2px solid #ff69b4;
-	padding-bottom: 10px;
-	margin-bottom: 20px;
+    border-bottom: 2px solid #ff69b4; /* Romantic pink border color */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #ff69b4; /* Romantic pink text color */
 }
 
 p {
-	font-size: 20px;
-	margin-bottom: 20px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #8c8c8c; /* Romantic gray text color */
 }
 
 ul {
-	text-align: center;
-	padding-left: 0;
-	list-style-type: none;
-	margin-top: 0;
+    text-align: center;
+    padding-left: 0;
+    list-style-type: none;
+    margin-top: 0;
 }
 
 li {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 /* Set styles for clock element */
@@ -34,14 +35,16 @@ li {
     font-size: 24px;
     text-align: center;
     margin-top: 20px;
+    color: #ff69b4; /* Romantic pink text color */
 }
+
 .reason-list {
     display: none;
 }
+
 .show-more-button {
     cursor: pointer;
 }
-
 
 /* Set styles for clock element spans */
 #clock span {
@@ -55,57 +58,42 @@ li {
     }
 }
 
+/* Add your footer styles here */
 footer {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: #ffc0cb;
-	padding: 10px;
-	box-sizing: border-box;
-	border-top: 2px solid #ff69b4;
-	font-weight: bold;
-	font-size: 16px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #ffe6f2;
+    border-top: 2px solid #ff69b4; /* Add a border to the top of the footer with romantic pink color */
+    font-weight: bold; /* Make the text in the footer bold */
 }
 
 .text-container {
-	color: #ff0000;
-	mix-blend-mode: difference;
-	z-index: 1;
+    position: relative;
+    z-index: 2; /* Increase z-index to position the text above the background image */
 }
 
 .reason::before {
-	content: '❤';
-	color: red;
-	position: absolute;
-	margin-left: -1.2em;
-  }
+    content: '❤';
+    color: #ff69b4; /* Romantic pink heart color */
+    position: absolute;
+    margin-left: -1.2em;
+    z-index: 3; /* Set z-index to position the heart icon above the text and the background image */
+}
 
-  .reason {
-	position: relative;
-  }
-
-  .reason-list {
-	position: relative;
-  }
-
-  .reason-list::before {
-	content: '';
-	color: red;
-	position: absolute;
-	margin-left: -1.2em;
-  }
-  
 .reason {
-	color: #ff69b4;
-	transition: color 0.2s ease;
-	mix-blend-mode: difference; /* Add blend mode to make text white when overlapped by background */
+    position: relative;
+    transition: color 0.2s ease;
+    color: #8c8c8c; /* Romantic gray text color */
 }
 
 .reason:hover {
-	color: white;
-	text-shadow: 0 0 5px #000;
-	font-weight: 300;
+    color: #ff69b4; /* Romantic pink text color on hover */
+    text-shadow: 0 0 5px #000;
+    font-weight: 300;
 }
 
 .background-image {
@@ -120,19 +108,19 @@ footer {
     background-size: cover;
     animation: move-background 15s linear infinite; /* Add animation property outside of the media query */
 }
-  
+
 @keyframes move-background {
-	0% {
-	  background-position: -200% 0; /* Background starts at 100% from the right */
-	}
-	100% {
-	  background-position: 300% 0; /* Background moves to the right by 1 times the width */
-	}
+    0% {
+        background-position: -200% 0; /* Background starts at 100% from the right */
+    }
+    100% {
+        background-position: 300% 0; /* Background moves to the right by 1 times the width */
+    }
 }
 
 /* Adjust animation duration for smaller screens */
 @media screen and (max-width: 768px) {
-	.background-image {
-		animation-duration: 10s;
-	}
+    .background-image {
+        animation-duration: 10s;
+    }
 }
