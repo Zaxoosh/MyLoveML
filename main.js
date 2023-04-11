@@ -23,8 +23,10 @@ function updateCountdown() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Update the countdown elements in the HTML
-  var timeString = 'Days: ' + days + ' Hours: ' + hours + ' Minutes: ' + minutes + ' Seconds: ' + seconds;
-  document.getElementById('days').textContent = timeString;
+  document.getElementById('days').textContent = 'Days: ' + days;
+  document.getElementById('hours').textContent = 'Hours: ' + hours;
+  document.getElementById('minutes').textContent = 'Minutes: ' + minutes;
+  document.getElementById('seconds').textContent = 'Seconds: ' + seconds;
   setTimeout(updateCountdown, 1000);
 }
 updateCountdown();
