@@ -15,19 +15,16 @@ function updateCountdown() {
   var countdownDate = new Date('2023-04-08T00:00:00Z'); // Set your target date and time here
   var now = new Date().getTime();
   var distance = countdownDate - now;
-  
+
   // Calculate days, hours, minutes, and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  
+
   // Update the countdown elements in the HTML
-  document.getElementById('days').textContent = days;
-  document.getElementById('hours').textContent = hours;
-  document.getElementById('minutes').textContent = minutes;
-  document.getElementById('seconds').textContent = seconds;
-  
+  var timeString = 'Days: ' + days + ' Hours: ' + hours + ' Minutes: ' + minutes + ' Seconds: ' + seconds;
+  document.getElementById('days').textContent = timeString;
   setTimeout(updateCountdown, 1000);
 }
 updateCountdown();
