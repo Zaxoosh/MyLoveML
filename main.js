@@ -8,13 +8,13 @@
     if (timeData.days > 0) {
       formattedTime += timeData.days + ' days, ';
     }
-    if (timeData.hours > 0) {
-      formattedTime += timeData.hours + ' hours, ';
+    if (timeData.hours > 0 || timeData.days > 0) {
+      formattedTime += String(timeData.hours).padStart(2, '0') + ' hours, ';
     }
-    if (timeData.minutes > 0) {
-      formattedTime += timeData.minutes + ' minutes, ';
+    if (timeData.minutes > 0 || timeData.hours > 0 || timeData.days > 0) {
+      formattedTime += String(timeData.minutes).padStart(2, '0') + ' minutes, ';
     }
-    formattedTime += timeData.seconds + ' seconds';
+    formattedTime += String(timeData.seconds).padStart(2, '0') + ' seconds';
     return formattedTime;
   }
 
