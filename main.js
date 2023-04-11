@@ -1,5 +1,5 @@
 <!-- Create an element to display the clock -->
-<div id="clock"></div>
+<div id='clock'></div>
 
 <script>
 // Function to calculate time difference
