@@ -1,47 +1,33 @@
-<!-- Include the LocalStorageDB library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/localStorageDB/2.7/localStorageDB.min.js"></script>
-
 <!-- Create an element to display the clock -->
 <div id="clock"></div>
 
 <script>
-// Create a LocalStorageDB instance
-const db = new localStorageDB('myDB', localStorage);
-
-// Define a function to update the time
-function updateTime() {
-  let startDate = new Date();
-  let clock = document.getElementById("clock");
-  
-  // Fetch current date and time from an API
-  fetch('https://worldtimeapi.org/api/timezone/Etc/UTC')
-    .then(response => response.json())
-    .then(({ datetime }) => {
-      let currentDate = new Date(datetime);
-      let diff = currentDate.getTime() - startDate.getTime();
-      let totalSeconds = Math.floor(diff / 1000);
-      let days = Math.floor(totalSeconds / (60 * 60 * 24));
-      let hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
-      let minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
-      let seconds = totalSeconds % 60;
-      let timeString = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
-      clock.innerHTML = timeString;
-
-      // Store the time data in LocalStorageDB
-      db.insertOrUpdate('timeData', { id: 1, time: timeString });
-
-      // Commit changes to LocalStorageDB
-      db.commit();
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+// Function to calculate time difference
+function calculateTimeDifference(startDate) {
+  let currentDate = new Date();
+  let timeDifference = currentDate.getTime() - startDate.getTime();
+  let totalSeconds = Math.floor(timeDifference / 1000);
+  let days = Math.floor(totalSeconds / (60 * 60 * 24));
+  let hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+  let minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+  let seconds = totalSeconds % 60;
+  return { days, hours, minutes, seconds };
 }
 
-// Check if time data exists in LocalStorageDB and display it
-if (db.tableExists('timeData')) {
-  let timeData = db.queryAll('timeData')[0];
-  document.getElementById("clock").innerHTML = timeData.time;
+// Function to format time data as a string
+function formatTimeData(timeData) {
+  return `${timeData.days} days, ${timeData.hours} hours, ${timeData.minutes} minutes, ${timeData.seconds} seconds`;
+}
+
+// Define the date when you met
+const startDate = new Date('2022-10-30T00:00:00Z');
+
+// Function to update the time
+function updateTime() {
+  let clock = document.getElementById("clock");
+  let timeData = calculateTimeDifference(startDate);
+  let timeString = formatTimeData(timeData);
+  clock.innerHTML = timeString;
 }
 
 // Call updateTime function on window load
