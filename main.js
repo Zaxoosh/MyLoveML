@@ -3,19 +3,13 @@
 
 <script>
   // Function to format time data as a string
-  function formatTimeData(timeData) {
-    let formattedTime = '';
-    if (timeData.days > 0) {
-      formattedTime += timeData.days + ' days, ';
-    }
-    if (timeData.hours > 0) {
-      formattedTime += timeData.hours + ' hours, ';
-    }
-    if (timeData.minutes > 0) {
-      formattedTime += timeData.minutes + ' minutes, ';
-    }
-    formattedTime += timeData.seconds + ' seconds';
-    return formattedTime;
+  function formatTime(totalSeconds) {
+    var days = Math.floor(totalSeconds / (60 * 60 * 24));
+    var hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+    var minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+    var seconds = totalSeconds % 60;
+
+    return days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds";
   }
 
   // Define the date when you met in UTC format
@@ -26,13 +20,7 @@
     let clock = document.getElementById("clock");
     let currentDate = new Date();
     let timeDifference = Math.floor((currentDate.getTime() - startDate) / 1000);
-    let timeData = {
-      days: Math.floor(timeDifference / (60 * 60 * 24)),
-      hours: Math.floor((timeDifference % (60 * 60 * 24)) / (60 * 60)),
-      minutes: Math.floor((timeDifference % (60 * 60)) / 60),
-      seconds: timeDifference % 60
-    };
-    let timeString = formatTimeData(timeData);
+    let timeString = formatTime(timeDifference);
     clock.innerHTML = timeString;
   }
 
