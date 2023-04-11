@@ -32,10 +32,16 @@ li {
 /* Set styles for clock element */
 #clock {
     font-size: 24px;
-    font-weight: bold;
     text-align: center;
     margin-top: 20px;
 }
+.reason-list {
+    display: none;
+}
+.show-more-button {
+    cursor: pointer;
+}
+
 
 /* Set styles for clock element spans */
 #clock span {
@@ -62,39 +68,71 @@ footer {
 	font-size: 16px;
 }
 
+.text-container {
+	color: #ff0000;
+	mix-blend-mode: difference;
+	z-index: 1;
+}
 
+.reason::before {
+	content: '❤';
+	color: red;
+	position: absolute;
+	margin-left: -1.2em;
+  }
+
+  .reason {
+	position: relative;
+  }
+
+  .reason-list {
+	position: relative;
+  }
+
+  .reason-list::before {
+	content: '';
+	color: red;
+	position: absolute;
+	margin-left: -1.2em;
+  }
+  
 .reason {
 	color: #ff69b4;
 	transition: color 0.2s ease;
-  }
-  
-  .reason:hover {
+	mix-blend-mode: difference; /* Add blend mode to make text white when overlapped by background */
+}
+
+.reason:hover {
 	color: white;
 	text-shadow: 0 0 5px #000;
 	font-weight: 300;
-  }  
+}
 
 .background-image {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
-	background-image: url('Hearts.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-  }
-
-  @keyframes move-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Set a higher z-index value */
+    background-image: url('Hearts.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: move-background 15s linear infinite; /* Add animation property outside of the media query */
+}
+  
+@keyframes move-background {
 	0% {
-	  background-position: 0 0;
+	  background-position: -200% 0; /* Background starts at 100% from the right */
 	}
 	100% {
-	  background-position: 100% 0;
+	  background-position: 300% 0; /* Background moves to the right by 1 times the width */
 	}
-  }
-  
-  .background-image {
-	animation: move-background 30s ease infinite;
-  }  
+}
+
+/* Adjust animation duration for smaller screens */
+@media screen and (max-width: 768px) {
+	.background-image {
+		animation-duration: 10s;
+	}
+}
