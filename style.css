@@ -29,6 +29,7 @@ ul {
 
 li {
     margin-bottom: 15px;
+    list-style-type: none; /* Remove bullet points or numbers for list items */
 }
 
 /* Set styles for clock element */
@@ -202,11 +203,11 @@ footer {
   
   .background-image {
     animation: moveBackground 20s linear infinite; /* Adjust the animation duration (in seconds) for larger screens */
-    max-width: 5000px; /* Add a suitable max width for the larger screen animations */
+    @media (max-width: 10000px;) /* Add a suitable max width for the larger screen animations */
   }
   
   /* CSS animation duration for smaller screens */
-  @media (max-width: 768px) {
+  @media (max-width: 768px) { 
     .background-image {
       animation: moveBackground 0.5s linear infinite; /* Adjust the animation duration (in seconds) for smaller screens */
     }
