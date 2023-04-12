@@ -166,8 +166,6 @@ footer {
     }
 }
 
-
-
 .reason {
     position: relative;
     transition: color 0.2s ease;
@@ -191,3 +189,24 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* CSS animation duration for larger screens */
+@keyframes moveBackground {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 300% 0;
+    }
+  }
+  
+  .background-image {
+    animation: moveBackground 20s linear infinite; /* Adjust the animation duration (in seconds) for larger screens */
+  }
+  
+  /* CSS animation duration for smaller screens */
+  @media (max-width: 768px) {
+    .background-image {
+      animation: moveBackground 0.5s linear infinite; /* Adjust the animation duration (in seconds) for smaller screens */
+    }
+  }
