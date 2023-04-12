@@ -187,6 +187,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
+    opacity: 50%;
     z-index: -1; /* Set a higher z-index value */
     background-image: url('Hearts.png');
     background-repeat: no-repeat;
@@ -208,7 +209,8 @@ footer {
   }
   
   /* CSS animation duration for smaller screens */
-  /* @media (max-width: 768px) { 
+   @media (max-width: 768px) { 
     .background-image {
       animation: moveBackground 0.5s linear infinite; /* Adjust the animation duration (in seconds) for smaller screens */
-    
+    }
+}
