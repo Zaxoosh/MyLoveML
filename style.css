@@ -202,6 +202,7 @@ footer {
   
   .background-image {
     animation: moveBackground 20s linear infinite; /* Adjust the animation duration (in seconds) for larger screens */
+    max-width: 5000px; /* Add a suitable max width for the larger screen animations */
   }
   
   /* CSS animation duration for smaller screens */
