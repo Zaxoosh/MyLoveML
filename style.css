@@ -24,10 +24,11 @@ ul {
     padding-left: 0;
     list-style-type: none;
     margin-top: 0;
+    margin-bottom: 50px;
 }
 
 li {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 /* Set styles for clock element */
@@ -36,6 +37,56 @@ li {
     text-align: center;
     margin-top: 20px;
     color: #ff69b4; /* Romantic pink text color */
+}
+
+#reasonPlaceholder {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.reason-list {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.text-effect-romantic {
+    position: relative;
+    display: inline-block; /* Change display to inline-block */
+    text-decoration: none;
+}
+
+.text-effect-romantic::after {
+    content: attr(data-text); /* Use data-text attribute for content */
+    position: relative; /* Change position to relative */
+    bottom: 0px; /* Adjust bottom value to control vertical alignment */
+    height: 3px;
+    opacity: 0.7;
+    z-index: -1;
+    font-weight: bold;
+    color: #ff007f; /* Set default color for romantic effect */
+    text-shadow: 1px 1px 2px #ff007f; /* Set default text shadow for romantic effect */
+}
+
+/* Generate random color and text shadow for each nth-child element */
+.text-effect-romantic:nth-child(2n)::after {
+    color: #ff69b4;
+    text-shadow: 1px 1px 2px #ff69b4;
+}
+
+.text-effect-romantic:nth-child(3n)::after {
+    color: #ff4500;
+    text-shadow: 1px 1px 2px #ff4500;
+}
+
+.text-effect-romantic:nth-child(4n)::after {
+    color: #ff6347;
+    text-shadow: 1px 1px 2px #ff6347;
+}
+
+.text-effect-romantic:nth-child(5n)::after {
+    color: #e6005c;
+    text-shadow: 1px 1px 2px #e6005c;
 }
 
 .reason-list {
@@ -47,6 +98,7 @@ li {
 .show-more-button {
     display: inline-block;
     padding: 12px 20px;
+    margin-bottom: 50px;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
@@ -138,21 +190,4 @@ footer {
     background-image: url('Hearts.png');
     background-repeat: no-repeat;
     background-size: cover;
-    animation: move-background 15s linear infinite; /* Add animation property outside of the media query */
-}
-
-@keyframes move-background {
-    0% {
-        background-position: -200% 0; /* Background starts at 100% from the right */
-    }
-    100% {
-        background-position: 300% 0; /* Background moves to the right by 1 times the width */
-    }
-}
-
-/* Adjust animation duration for smaller screens */
-@media screen and (max-width: 768px) {
-    .background-image {
-        animation-duration: 10s;
-    }
 }

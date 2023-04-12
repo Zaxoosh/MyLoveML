@@ -3,7 +3,7 @@
 <head>
   <title>How Long I've Loved You For</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <style>   
+  <style>
   </style>
 </head>
 <body>
@@ -35,9 +35,31 @@
     <li><span class="reason">Reason 19</span> - She has a positive outlook on life</li>  
     <li><span class="reason">Reason 20</span> - She is my soulmate and I cannot imagine my life without her</li>
     <!-- ... other list items ... -->
-    <li id="reasonPlaceholder" class="reason-list">In summary, she is a wonderful companion who fills my life with love and joy. She is not only my confidante and best friend, but she is also a beautiful soul who brings brightness to every day. She is an incredible listener, understanding and caring for me deeply. She inspires me to be the best version of myself, and she is my partner in adventure, making every moment more meaningful. She is my rock, providing strength and stability. She is my sunshine on cloudy days, bringing warmth and happiness to my heart. She is my safe haven, where I feel loved and accepted. She is my confidante, with whom I can share my hopes, dreams, and fears. She is my supporter, cheering me on and celebrating my achievements. She is my comfort, providing solace in difficult times. She is my equal, challenging me to grow and evolve. She is my source of laughter, bringing joy and levity to my life. She is my partner in crime, sharing in adventures and creating lasting memories. She is my inspiration, showing me the beauty of life and the power of love. She is my heart's desire, filling my life with warmth, affection, and meaning. She is my confidante, with whom I can share my deepest thoughts and emotions. She is my treasure, a rare and precious gem in my life. She is my love, the one who has captured my heart and soul completely.</li>
-  </ul>
-  
+    <ul>
+      <li id="reasonPlaceholder" class="reason-list">
+        In summary, she is a wonderful companion who fills my life with 
+        <span class="text-effect-romantic" data-text="love"></span> and 
+        <span class="text-effect-romantic" data-text="joy"></span>. She is not only my confidante and best friend, 
+        but she is also a <span class="text-effect-romantic" data-text="beautiful"></span> soul who brings brightness to every day.
+        She is an <span class="text-effect-romantic" data-text="incredible"></span> listener, understanding and caring for me deeply.
+        She inspires me to be the best version of myself, and she is 
+        my partner in adventure, making every moment more meaningful.
+        She is my rock, providing <span class="text-effect-romantic" data-text="strength"></span> and stability. She is my sunshine on cloudy days, bringing warmth and happiness to my heart. She is my 
+        safe haven, where I feel loved and accepted. She is my confidante, with whom I can share my hopes, 
+        dreams, and fears. She is my <span class="text-effect-romantic" data-text="supporter"></span>, cheering me on and celebrating my achievements.
+        She is my <span class="text-effect-romantic" data-text="comfort"></span>, providing solace in difficult times.
+        She is my <span class="text-effect-romantic" data-text="equal"></span>, challenging me to grow and evolve.
+        She is my source of <span class="text-effect-romantic" data-text="laughter"></span>, bringing joy and levity to my life.
+        She is my partner in crime, sharing in adventures and creating lasting memories.
+        She is my <span class="text-effect-romantic" data-text="inspiration"></span>, showing me the beauty of life and the power of love.
+        She is my heart's desire, filling my life with warmth, affection, and meaning.
+        She is my <span class="text-effect-romantic" data-text="confidante"></span>, with whom I can share my deepest thoughts and emotions.
+        She is my <span class="text-effect-romantic" data-text="treasure"></span>, a rare and precious gem in my life.
+        She is my <span class="text-effect-romantic" data-text="love"></span>, the one who has captured my heart and soul completely.
+      </li>
+    </ul>
+    
+    
   <button id="showMoreButton" class="show-more-button">Click Me x</button>
 
   <!-- Add your footer element here -->
@@ -45,38 +67,6 @@
     Designed by Zach Cooksey + I'll love you forever x
   </footer>
 
-  <script>
-    // Define the target date
-    const targetDate = new Date('October 30, 2022 00:00:00').getTime();
-
-    // Update the clock every second
-    const interval = setInterval(() => {
-      // Get the current date and time
-      const now = new Date().getTime();
-
-      // Calculate the time difference between the current date and the target date
-      const timeDifference = now - targetDate;
-
-      // Calculate the days, hours, minutes, and seconds
-      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-      // Display the time elapsed in the HTML elements
-      document.getElementById('days').textContent = days;
-      document.getElementById('hours').textContent = hours;
-      document.getElementById('minutes').textContent = minutes;
-      document.getElementById('seconds').textContent = seconds;
-    }, 1000);
-
-    // Show more button click event
-    document.getElementById('showMoreButton').addEventListener('click', () => {
-      // Show the hidden reason list
-      document.getElementById('reasonPlaceholder').style.display = 'list-item';
-      // Hide the show more button
-      document.getElementById('showMoreButton').style.display = 'none';
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
